@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.moaboa.dao">
+	<select id="selectWebToonAll" parameterType="String" resultType="wdto">
+		SELECT wname, wimage, website, recentlyno, wgenre, imageurl, contenturl
+		FROM webtoon
+		WHERE week = #{week}
+	</select>
+	<select id="selectWebToonNaver" parameterType="String" resultType="wdto">
+		SELECT titleid, recentlyno, wimage
+		FROM webtoon
+		WHERE wname = #{wName}
+	</select>
+	<insert id="insertNaver" parameterType="wdto">
+		INSERT INTO webtoon(wname, wimage, website, recentlyno, wgenre, imageurl, contenturl, week)
+		VALUES(#{wname}, #{wimage}, #{website}, #{recentlyno}, #{wgenre}, #{imageurl}, #{contenturl}, #{week})
+	</insert>
+	<insert id="insertdubbing" parameterType="ddto">
+		INSERT INTO dubbing(dno, hit, wurl, dpath, wname, userid)
+		VALUES(DUBBING_DNO_SEQ.NEXTVAL, #{hit}, #{wUrl}, #{dPath}, #{wName}, 'wwww')
+	</insert>
+	<insert id="insertMovieInfo" parameterType="com.moaboa.dto.MovieDTO">
+		INSERT INTO movie(mno, mname, mimage, preview, mgenre, director, actor, mdate)
+		VALUES(movie_mno_seq.nextval, #{mname}, #{mimage}, #{preview}, #{mgenre}, #{director}, #{actor}, #{mdate})
+	</insert>
+	<select id="selectMovieInfo" parameterType="int" resultType="com.moaboa.dto.MovieDTO">
+		SELECT mno, mname, mimage, preview, mgenre, director, actor, mdate
+		FROM movie
+		WHERE mno = #{mno}
+	</select>
+	<select id="selectMovieNumber" parameterType="String" resultType="int">
+		SELECT mno 
+		FROM movie
+		WHERE mname = #{mName}
+	</select>
+	<select id="insertTheater" parameterType="com.moaboa.dto.TheaterDTO">
+		INSERT INTO THEATER(theatername, localname, location)
+		VALUES(#{theatername}, #{localname}, #{location})
+	</select>
+	<select id="selectMovieAll" resultType="com.moaboa.dto.MovieDTO">
+		SELECT * FROM movie
+	</select>
+	<select resultType="com.moaboa.dto.ShowTimeDTO" parameterType="int" id="selectShowTimeAll">
+	 SELECT sno, mno, stime, interpark, theatername FROM showtime WHERE mno = #{mno} 
+	</select>
+	<select id="selectShowTimeOne" parameterType="int" resultType="com.moaboa.dto.ShowTimeDTO">
+		SELECT * FROM showtime
+		WHERE mno = #{mno}
+	</select>
+	<select id="getTheaterName" parameterType="String" resultType="String">
+		SELECT theatername FROM theater
+		WHERE localname = #{localName}
+	</select>
+	<select id="getShowTimeResult" parameterType="com.moaboa.dto.ShowTimeDTO" resultType="com.moaboa.dto.ShowTimeDTO">
+		SELECT m.mname, s.stime, s.interpark, s.theatername
+		FROM showtime s, movie m
+		WHERE s.mno = m.mno
+		AND s.stime like #{sTime}
+		AND s.theatername = #{theaterName}
+	</select>
+	<select id="selectTheaterAll" resultType="String">
+		SELECT theatername FROM theater
+	</select>
+		<select id="selectWebSiteAll" resultType="wdto">
+		SELECT website
+		FROM webtoon
+	</select>
+	<select id="selectListAll" resultType="wdto">
+		SELECT w.wname , w.website
+		FROM dubbing d , webtoon w
+		WHERE w.wname = d.wname
+	</select>
+	<select id="selectOneWebToon" parameterType="String" resultType="ddto">
+		SELECT *
+		FROM dubbing
+		WHERE wname = #{wname}
+	</select>
+	
+	<select id="selectWName" parameterType="int" resultType="String">
+		SELECT wname FROM webtoon WHERE titleid = #{titleId}
+	</select>
+	<select resultType="int" parameterType="int" id="getTotal">
+	 SELECT count(*) cnt FROM showtime WHERE mno = #{mno} 
+	 </select>
+	<select resultType="sdto" parameterType="se" id="selectShowTimePaging"> 
+		select rn, sno, mno, stime, interpark, theatername 
+		from (select rownum rn, sno, mno, stime, interpark, theatername from showtime where mno = #{mno} order by stime asc) 
+		where rn &gt;= #{startNo} and rn &lt;= #{endNo} 
+	</select>
+	<select resultType="com.moaboa.dto.ShowTimeDTO" parameterType="int" id="selectTheaterLocationAll"> 
+	SELECT s.theatername, t.location, s.stime, s.mno, s.interpark FROM showtime s, theater t WHERE s.theatername = t.theatername AND s.mno = #{s.mno} 
+	</select>
+	
+	<!--userinfo -->
+	
+	
+	<insert parameterType="udto" id="insertUser"> 
+	INSERT INTO userinfo(userId, password, userName, email, residence, roomNo) VALUES (#{userId},#{password},#{userName},#{email},#{residence},member_mno_sq.nextval) 
+	</insert>
+	
+	<select resultType="udto" parameterType="String" id="selectOneUser"> 
+	SELECT * FROM userinfo WHERE userId = #{userId} 
+	</select>
+	
+	<select resultType="udto" parameterType="String" id="idConfirm"> 
+	SELECT * FROM userinfo where userId = #{userId} 
+	</select>
+	
+	<!-- userinfo -->
+</mapper>

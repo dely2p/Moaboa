@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="ddto" type="com.moaboa.dto.DubbingDTO" />
+		<typeAlias alias="wdto" type="com.moaboa.dto.WebToonDTO"/>
+		<typeAlias alias="sdto" type="com.moaboa.dto.ShowTimeDTO"/>		
+		<typeAlias alias="se" type="com.moaboa.dto.StartEnd"/>		
+		<typeAlias alias="udto" type="com.moaboa.dto.UserInfoDTO"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/moaboa/resource/mapper.xml" />
+	</mappers>
+</configuration>

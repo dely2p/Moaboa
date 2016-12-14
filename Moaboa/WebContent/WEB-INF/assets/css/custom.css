@@ -1,0 +1,56 @@
+/* 웹툰 */
+.todayToon{width: 100%; padding-top: 30px; text-align: center;}
+.todayToon .toonBox{display: inline-block; width: 20%; margin: 0 3%;}
+.todayToon .toonBox .toonImg{border: 1px solid #e6e6e6;}
+.todayToon .toonBox .toonImg img{width: 100%; height: 300px;}
+.todayToon .toonBox .toonDesc{padding: 10px; text-align: left;}
+.todayToon .toonBox .toonDesc .title{width: 100%; float: left; font-weight: bold; color: #333;}
+.todayToon .toonBox .toonDesc .writer{width: 100%; float: left; margin-bottom: 3px; color: #767676; font-size: 12px;}
+.todayToon .toonBox .toonDesc .desc{width: 100%; float: left; color: #434343; font-size: 14px;}
+
+.dotwBtn{text-align: center; padding: 20px 0 10px;}
+.dotwBtn a{margin: 0 7px 5px;}
+
+.recoToon{width: 100%; text-align: center;}
+.recoToon .toonBox{display: inline-block; width: 15%; margin: 0 1%;}
+.recoToon .toonBox .img{width: 100%;}
+.recoToon .toonBox .img img{width: 100%;}
+.recoToon .toonBox .desc{width: 100%; padding: 10px;}
+.recoToon .toonBox .desc .tit{width: 100%; float: left; font-size: 14px; color: #333;}
+.recoToon .toonBox .desc .writer{width: 100%; float: left; font-size: 12px; color: #434343;}
+
+.toonInfo{overflow: hidden; width: 50%; height: 200px; padding: 20px; border: 1px solid #eee; margin: 30px auto;}
+.toonInfo .imgBox{width: 30%; float: left; text-align: center;}
+.toonInfo .imgBox img{height: 100%;}
+.toonInfo .desc{position: relative; width: 70%; height: 100%; float: left; padding-top: 30px; padding-left: 30px;}
+.toonInfo .desc .title{font-size: 18px; font-weight: bold; color: #000;}
+.toonInfo .desc .writer{padding: 3px 0 8px; font-size: 12px; color: #666;}
+.toonInfo .desc .txt{font-size: 14px; color: #000;}
+.toonInfo .desc .btnBox{position: absolute; left: 30px; bottom: 0;}
+.toonInfo .desc .btnBox a{padding: 3px 10px; border: 1px solid #b8b8b8;}
+.toonInfo .desc .btnBox .firstToonBtn{}
+.toonInfo .desc .btnBox .bookMaker{}
+
+
+
+/* 영화 */
+.illustration-v3.illustration-img1.movieImg{min-height: 260px;}
+.illustration-v3.illustration-img1.movieImg span{min-height: 260px;}
+.illustration-v3.illustration-img1.movieImg span img{height: 100%;}
+.product-img.cImg{height: 537px;}
+
+.searchBox{width: 100%; padding: 1% 10%; text-align: center;}
+.searchBox .txt{display: inline-block; margin-right: 30px;}
+.searchBox label{margin-right: 7px; color: #333;}
+.searchBox .txt input{width: 170px; height: 30px; padding: 0 5px;}
+.searchBox .sel{display: inline-block; height: 30px; padding: 0 5px; text-align: center; text-align-last: center;}
+.searchBox .sel option{text-align: center;}
+.searchBox .searchBtn{margin-left: 30px;}
+.resultBox{width: 100%; padding: 30px 10%;}
+.resultBox .theaterBox{width: 100%; padding: 30px 0; border-bottom: 1px solid #eee;}
+.resultBox .theaterBox .theater{margin-bottom: 20px; font-size: 24px; font-weight: bold; color: #986273;}
+.resultBox .theaterBox .desc{padding: 7px 0;}
+.resultBox .theaterBox .desc .title{font-size: 16px; color: #666;}
+.resultBox .theaterBox .desc .time{margin-right: 7px; font-size: 12px; color: #888;}
+
+.pt50{padding-top: 50px;}

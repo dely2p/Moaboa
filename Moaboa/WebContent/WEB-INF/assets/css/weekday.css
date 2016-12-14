@@ -1,0 +1,35 @@
+/* @CHARSET "UTF-8";
+ul{list-style: none}
+
+#dayListTab {
+    overflow: visible;
+}
+
+.btn_comm {
+    display: block;
+    background: url(http://i1.daumcdn.net/img-contents/webtoon/PC/btn_comm_160901.png) no-repeat;
+    cursor: pointer;
+}
+
+.link_tab {
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    color: #fff;
+    background-position: -190px 0;
+    text-decoration: none;
+}
+
+dl, ul, ol, menu, li {
+    list-style: none;
+}
+user agent stylesheet
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+} */
